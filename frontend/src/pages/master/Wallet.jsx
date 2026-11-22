@@ -133,12 +133,12 @@ const Wallet = () => {
                 <div key={transaction.id || idx} className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8 hover:bg-slotta-purple-50/30 transition">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      transaction.type === 'payout' ? 'bg-red-50' : 'bg-green-50'
+                      transaction.type === 'payout' ? 'bg-red-50' : 'bg-slotta-lime-50'
                     }`}>
                       {transaction.type === 'payout' ? (
-                        <ArrowDownCircle className="w-5 h-5 text-red-500" />
+                        <ArrowDownCircle className="w-5 h-5 text-red-600" />
                       ) : (
-                        <ArrowUpCircle className="w-5 h-5 text-green-500" />
+                        <ArrowUpCircle className="w-5 h-5 text-slotta-lime-dark" />
                       )}
                     </div>
                     <div>
@@ -152,10 +152,10 @@ const Wallet = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`text-lg font-bold ${transaction.type === 'payout' ? 'text-red-500' : 'text-green-500'}`}>
+                    <div className={`text-lg font-bold ${transaction.type === 'payout' ? 'text-red-600' : 'text-slotta-lime-dark'}`}>
                       {transaction.type === 'payout' ? '-' : '+'}€{transaction.amount}
                     </div>
-                    <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-green-50 text-green-700">completed</span>
+                    <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-slotta-lime-50 text-slotta-lime-dark">completed</span>
                   </div>
                 </div>
               ))}

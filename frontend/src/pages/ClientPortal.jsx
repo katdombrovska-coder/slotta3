@@ -68,7 +68,7 @@ const ClientPortal = () => {
   };
 
   const statusColors = {
-    confirmed: 'bg-green-50 text-green-700',
+    confirmed: 'bg-slotta-lime-50 text-slotta-lime-dark',
     pending: 'bg-yellow-50 text-yellow-700',
     completed: 'bg-slotta-purple-50 text-slotta-purple',
     cancelled: 'bg-gray-50 text-slotta-ink-soft',
@@ -245,10 +245,10 @@ const ClientPortal = () => {
                 <div className="text-sm text-slotta-ink-soft">Upcoming Bookings</div>
               </div>
               <div className="slotta-card rounded-2xl p-6">
-                <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-xl bg-slotta-lime-50 flex items-center justify-center mb-3">
+                  <CheckCircle className="w-5 h-5 text-slotta-lime-dark" strokeWidth={1.5} />
                 </div>
-                <div className="text-4xl font-bold text-green-500 mb-1">{completedCount}</div>
+                <div className="text-4xl font-bold text-slotta-lime-dark mb-1">{completedCount}</div>
                 <div className="text-sm text-slotta-ink-soft">Completed Bookings</div>
               </div>
             </div>
@@ -327,8 +327,8 @@ const ClientPortal = () => {
                   { title: 'Never Expires', desc: 'Your credits don\'t expire. Use them whenever you\'re ready.' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle className="w-4 h-4 text-green-500" strokeWidth={2} />
+                    <div className="w-6 h-6 rounded-full bg-slotta-lime-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="w-4 h-4 text-slotta-lime-dark" strokeWidth={2} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-slotta-ink mb-1 text-sm">{item.title}</h4>
@@ -364,7 +364,7 @@ const ClientPortal = () => {
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { value: client?.total_bookings || 0, label: 'Total Bookings', bg: 'bg-slotta-purple-50', text: 'text-slotta-purple' },
-                  { value: client?.completed_bookings || 0, label: 'Completed', bg: 'bg-green-50', text: 'text-green-600' },
+                  { value: client?.completed_bookings || 0, label: 'Completed', bg: 'bg-slotta-lime-50', text: 'text-slotta-lime-dark' },
                   { value: client?.reliability || 'new', label: 'Status', bg: 'bg-yellow-50', text: 'text-yellow-600' },
                 ].map((stat, idx) => (
                   <div key={idx} className={`text-center p-4 ${stat.bg} rounded-xl`}>

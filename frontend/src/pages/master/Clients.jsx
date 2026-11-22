@@ -80,7 +80,7 @@ const Clients = () => {
                 const config = reliabilityConfig[client.reliability] || reliabilityConfig.new;
                 const ReliabilityIcon = config.icon;
                 const badgeStyles = {
-                  green: 'bg-green-50 text-green-700 border-green-200',
+                  green: 'bg-slotta-lime-50 text-slotta-lime-dark border-slotta-lime/20',
                   yellow: 'bg-yellow-50 text-yellow-700 border-yellow-200',
                   red: 'bg-red-50 text-red-700 border-red-200',
                 };
@@ -101,7 +101,7 @@ const Clients = () => {
                         <div className="text-xs text-slotta-ink-soft">Bookings</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xl font-bold text-green-600">{client.completed_bookings || 0}</div>
+                        <div className="text-xl font-bold text-slotta-lime-dark">{client.completed_bookings || 0}</div>
                         <div className="text-xs text-slotta-ink-soft">Completed</div>
                       </div>
                       <div className="text-center">
@@ -130,7 +130,7 @@ const Clients = () => {
         <h3 className="text-lg font-semibold text-slotta-ink mb-5">Reliability Tags Explained</h3>
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { icon: CheckCircle, title: 'Reliable', color: 'text-green-600', bg: 'bg-green-50', desc: 'Excellent booking history with 0-1 no-shows. SLØ reduced by 20%.' },
+            { icon: CheckCircle, title: 'Reliable', color: 'text-slotta-lime-dark', bg: 'bg-slotta-lime-50', desc: 'Excellent booking history with 0-1 no-shows. SLØ reduced by 20%.' },
             { icon: Star, title: 'New Client', color: 'text-yellow-600', bg: 'bg-yellow-50', desc: 'First-time or early bookings. SLØ increased by 20% as protection.' },
             { icon: AlertTriangle, title: 'Needs Protection', color: 'text-red-600', bg: 'bg-red-50', desc: 'History of 2+ no-shows. SLØ increased by 30% to protect your time.' },
           ].map((item, idx) => (

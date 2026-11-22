@@ -196,8 +196,8 @@ const BookingPage = () => {
     return (
       <div className="min-h-screen bg-slotta-cream flex items-center justify-center p-6">
         <div className="slotta-card rounded-3xl max-w-2xl w-full p-8 md:p-10 text-center">
-          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-12 h-12 text-green-500" strokeWidth={1.5} />
+          <div className="w-20 h-20 bg-slotta-lime-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="w-12 h-12 text-slotta-lime-dark" strokeWidth={1.5} />
           </div>
           <h2 className="text-3xl font-bold text-slotta-ink mb-3" data-testid="booking-confirmed-title">Booking Confirmed!</h2>
           <p className="text-slotta-ink-soft mb-6">You're all set! A confirmation email has been sent to {clientData.email}.</p>
@@ -219,8 +219,8 @@ const BookingPage = () => {
               <span className="font-semibold text-slotta-purple text-sm">€{service?.base_slotta || Math.round(service?.price * 0.3)} (held, not charged)</span>
             </div>
           </div>
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-4 mb-6">
-            <p className="text-sm text-green-700">
+          <div className="bg-slotta-lime-50 border border-slotta-lime/20 rounded-2xl p-4 mb-6">
+            <p className="text-sm text-slotta-lime-dark">
               <strong>Important:</strong> Show up on time and your card hold will be released immediately. If you need to reschedule, do so at least 24 hours before your appointment.
             </p>
           </div>

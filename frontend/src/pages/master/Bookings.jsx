@@ -40,7 +40,7 @@ const Bookings = () => {
 
   const statusPill = (status) => {
     const styles = {
-      confirmed: 'bg-green-50 text-green-700 border-green-200',
+      confirmed: 'bg-slotta-lime-50 text-slotta-lime-dark border-slotta-lime/20',
       pending: 'bg-yellow-50 text-yellow-700 border-yellow-200',
       completed: 'bg-slotta-purple-50 text-slotta-purple border-slotta-purple/20',
       'no-show': 'bg-red-50 text-red-700 border-red-200',

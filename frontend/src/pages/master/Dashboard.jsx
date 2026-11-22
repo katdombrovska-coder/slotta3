@@ -373,7 +373,7 @@ const Dashboard = () => {
                       <div className="text-sm text-slotta-ink-soft">€{booking.slotta_amount || 0} protected</div>
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      booking.status === 'confirmed' ? 'bg-green-50 text-green-700' :
+                      booking.status === 'confirmed' ? 'bg-slotta-lime-50 text-slotta-lime-dark' :
                       booking.status === 'pending' ? 'bg-yellow-50 text-yellow-700' :
                       booking.status === 'completed' ? 'bg-slotta-purple-50 text-slotta-purple' :
                       'bg-gray-50 text-slotta-ink-soft'

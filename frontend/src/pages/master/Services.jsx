@@ -204,7 +204,7 @@ const Services = () => {
                     <Edit className="w-4 h-4 text-slotta-ink" />
                   </button>
                   <button onClick={() => handleDelete(service.id)} className="w-9 h-9 rounded-full bg-white border border-red-200 flex items-center justify-center hover:bg-red-50 transition">
-                    <Trash className="w-4 h-4 text-red-500" />
+                    <Trash className="w-4 h-4 text-red-600" />
                   </button>
                 </div>
               </div>
@@ -237,7 +237,7 @@ const Services = () => {
             <div className="space-y-2 text-sm">
               {[
                 { label: 'New client', value: '+20%', color: 'bg-yellow-50 text-yellow-700' },
-                { label: 'Reliable client', value: '-20%', color: 'bg-green-50 text-green-700' },
+                { label: 'Reliable client', value: '-20%', color: 'bg-slotta-lime-50 text-slotta-lime-dark' },
                 { label: 'Peak slot demand', value: '+15%', color: 'bg-slotta-purple-50 text-slotta-purple' },
                 { label: 'Cancellation history', value: '+30%', color: 'bg-red-50 text-red-700' },
               ].map((row, i) => (

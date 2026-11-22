@@ -381,8 +381,8 @@ const Settings = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${calendarConnected ? 'bg-green-50' : 'bg-slotta-purple-50'}`}>
-                {calendarConnected ? <CheckCircle className="w-5 h-5 text-green-500" /> : <Calendar className="w-5 h-5 text-slotta-purple/50" />}
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${calendarConnected ? 'bg-slotta-lime-50' : 'bg-slotta-purple-50'}`}>
+                {calendarConnected ? <CheckCircle className="w-5 h-5 text-slotta-lime-dark" /> : <Calendar className="w-5 h-5 text-slotta-purple/50" />}
               </div>
               <div>
                 <div className="font-semibold text-slotta-ink">Google Calendar</div>
@@ -435,7 +435,7 @@ const Settings = () => {
                 </button>
               </div>
               <div className="flex justify-end">
-                <button onClick={handleDisconnectCalendar} disabled={calendarLoading} className="text-sm text-red-500 hover:underline">Disconnect Google Calendar</button>
+                <button onClick={handleDisconnectCalendar} disabled={calendarLoading} className="text-sm text-red-600 hover:underline">Disconnect Google Calendar</button>
               </div>
             </>
           )}
@@ -451,8 +451,8 @@ const Settings = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${telegramConnected ? 'bg-green-50' : 'bg-slotta-purple-50'}`}>
-                {telegramConnected ? <CheckCircle className="w-5 h-5 text-green-500" /> : <MessageCircle className="w-5 h-5 text-slotta-purple/50" />}
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${telegramConnected ? 'bg-slotta-lime-50' : 'bg-slotta-purple-50'}`}>
+                {telegramConnected ? <CheckCircle className="w-5 h-5 text-slotta-lime-dark" /> : <MessageCircle className="w-5 h-5 text-slotta-purple/50" />}
               </div>
               <div>
                 <div className="font-semibold text-slotta-ink">Telegram Bot</div>
@@ -469,7 +469,7 @@ const Settings = () => {
                 <button onClick={handleTestTelegram} disabled={telegramLoading} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slotta-purple/15 text-sm text-slotta-ink hover:bg-slotta-purple-50 transition">
                   <Send className="w-3.5 h-3.5" /> Test
                 </button>
-                <button onClick={handleDisconnectTelegram} disabled={telegramLoading} className="text-sm text-red-500 hover:underline px-3">Disconnect</button>
+                <button onClick={handleDisconnectTelegram} disabled={telegramLoading} className="text-sm text-red-600 hover:underline px-3">Disconnect</button>
               </div>
             )}
           </div>
@@ -519,7 +519,7 @@ const Settings = () => {
             {prefsSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             Save Preferences
           </button>
-          {prefsToast && <span className="text-sm text-green-600">Saved!</span>}
+          {prefsToast && <span className="text-sm text-slotta-lime-dark">Saved!</span>}
         </div>
       </div>
 
@@ -569,8 +569,8 @@ const Settings = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${stripeConnected ? 'bg-green-50' : 'bg-slotta-purple-50'}`}>
-                {stripeConnected ? <CheckCircle className="w-5 h-5 text-green-500" /> : <Shield className="w-5 h-5 text-slotta-purple/50" />}
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center ${stripeConnected ? 'bg-slotta-lime-50' : 'bg-slotta-purple-50'}`}>
+                {stripeConnected ? <CheckCircle className="w-5 h-5 text-slotta-lime-dark" /> : <Shield className="w-5 h-5 text-slotta-purple/50" />}
               </div>
               <div>
                 <div className="font-semibold text-slotta-ink">Stripe Account</div>
