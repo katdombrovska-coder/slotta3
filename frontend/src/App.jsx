@@ -27,6 +27,7 @@ import MasterClients from '@/pages/master/Clients';
 import MasterWallet from '@/pages/master/Wallet';
 import MasterSettings from '@/pages/master/Settings';
 import MasterAnalytics from '@/pages/master/Analytics';
+import AdminPage from '@/pages/Admin';
 
 function App() {
   console.log('App component rendering...');
@@ -42,6 +43,8 @@ function App() {
           <Route path="/faq/master" element={<MasterFAQ />} />
           <Route path="/faq/client" element={<ClientFAQ />} />
           <Route path="/faq/troubleshooting" element={<TroubleshootingFAQ />} />
+          
+          <Route path="/admin" element={<AdminPage />} />
           
           {/* Protected Master Dashboard Routes */}
           <Route path="/master/dashboard" element={

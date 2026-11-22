@@ -447,6 +447,20 @@ async def get_master_by_slug(booking_slug: str):
     
     return master
 
+@api_router.get("/masters")
+async def get_all_masters(request: Request):
+    """Get all masters (admin only)"""
+    require_admin(request)
+    masters = await db.masters.find({}, {"_id": 0, "password_hash": 0}).to_list(length=1000)
+    return masters
+
+@api_router.get("/bookings")
+async def get_all_bookings(request: Request):
+    """Get all bookings (admin only)"""
+    require_admin(request)
+    bookings = await db.bookings.find({}, {"_id": 0}).to_list(length=1000)
+    return bookings
+
 @api_router.get("/masters/id/{master_id}", response_model=Master)
 async def get_master(master_id: str):
     """Get master by ID"""
