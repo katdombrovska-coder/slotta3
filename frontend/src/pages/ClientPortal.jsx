@@ -290,7 +290,7 @@ const ClientPortal = () => {
                           <div className="text-sm text-slotta-purple font-medium">SLØ: €{booking.slotta_amount || 0} (held, not charged)</div>
                         </div>
                         {(booking.status === 'confirmed' || booking.status === 'pending') && (
-                          <button onClick={() => handleCancelBooking(booking.id)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-200 text-sm text-red-500 hover:bg-red-50 transition">
+                          <button onClick={() => handleCancelBooking(booking.id)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-200 text-sm text-red-600 hover:bg-red-50 transition">
                             <X className="w-3.5 h-3.5" /> Cancel
                           </button>
                         )}
