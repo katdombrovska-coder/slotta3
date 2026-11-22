@@ -353,27 +353,18 @@ async def register_master(master_input: MasterCreate):
         raise HTTPException(status_code=400, detail="Booking slug already taken")
     
     # Create master with hashed password
-    try:
-        master_data = master_input.model_dump()
-        password = master_data.pop('password')
-        master_data['email'] = email
-        master_data['name'] = name
-        master_data['booking_slug'] = booking_slug
-        master_data['password_hash'] = hash_password(password)
-        
-        master = Master(**master_data)
-        await db.masters.insert_one(master.model_dump())
-    except Exception as e:
-        import traceback
-        logging.error(f"Registration error: {traceback.format_exc()}")
-        raise HTTPException(status_code=500, detail=f"Registration failed: {str(e)}")
+    master_data = master_input.model_dump()
+    password = master_data.pop('password')
+    master_data['email'] = email
+    master_data['name'] = name
+    master_data['booking_slug'] = booking_slug
+    master_data['password_hash'] = hash_password(password)
+    
+    master = Master(**master_data)
+    await db.masters.insert_one(master.model_dump())
     
     # Generate token
-    try:
-        token = create_token(master.id, master.email)
-    except Exception as e:
-        logging.error(f"Token creation error: {e}")
-        raise HTTPException(status_code=500, detail=f"Token creation failed: {str(e)}")
+    token = create_token(master.id, master.email)
     
     log_info(logger, "auth_register", master_id=master.id, email=master.email)
     
