@@ -42,9 +42,9 @@ const Bookings = () => {
     const styles = {
       confirmed: 'bg-green-50 text-green-700 border-green-200',
       pending: 'bg-yellow-50 text-yellow-700 border-yellow-200',
-      completed: 'bg-blue-50 text-blue-700 border-blue-200',
+      completed: 'bg-slotta-purple-50 text-slotta-purple border-slotta-purple/20',
       'no-show': 'bg-red-50 text-red-700 border-red-200',
-      rescheduled: 'bg-gray-50 text-gray-700 border-gray-200',
+      rescheduled: 'bg-gray-50 text-slotta-ink-soft border-slotta-purple/8',
     };
     return styles[status] || styles.pending;
   };

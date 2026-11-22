@@ -107,7 +107,7 @@ const AdminPage = () => {
     confirmed: 'bg-slotta-lime-50 text-slotta-lime-dark',
     pending: 'bg-yellow-50 text-yellow-700',
     completed: 'bg-slotta-purple-50 text-slotta-purple',
-    cancelled: 'bg-gray-100 text-gray-600',
+    cancelled: 'bg-gray-50 text-slotta-ink-soft',
     'no-show': 'bg-red-50 text-red-600',
   };
 
@@ -308,7 +308,7 @@ const AdminPage = () => {
                                   <div className="text-sm font-semibold text-slotta-ink">€{booking.service_price || 0}</div>
                                   <div className="text-xs text-slotta-purple">€{booking.slotta_amount || 0} SLØ</div>
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-100 text-gray-600'}`}>
+                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-50 text-slotta-ink-soft'}`}>
                                   {booking.status}
                                 </span>
                               </div>
@@ -369,7 +369,7 @@ const AdminPage = () => {
                                     Active
                                   </span>
                                 ) : (
-                                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-xs font-medium">
+                                  <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-50 text-slotta-ink-soft text-xs font-medium">
                                     Inactive
                                   </span>
                                 )}
@@ -427,7 +427,7 @@ const AdminPage = () => {
                                   <div className="text-sm font-semibold text-slotta-ink">€{booking.service_price || 0}</div>
                                   <div className="text-xs text-slotta-purple">€{booking.slotta_amount || 0} SLØ</div>
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-100 text-gray-600'}`}>
+                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-50 text-slotta-ink-soft'}`}>
                                   {booking.status}
                                 </span>
                               </div>

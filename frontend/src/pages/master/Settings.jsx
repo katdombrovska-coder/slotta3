@@ -534,7 +534,7 @@ const Settings = () => {
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" checked={settings.daily_summary_enabled} onChange={e => setSettings({ ...settings, daily_summary_enabled: e.target.checked })} className="sr-only peer" />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slotta-purple"></div>
+              <div className="w-11 h-6 bg-slotta-purple/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-slotta-purple"></div>
             </label>
           </div>
           {settings.daily_summary_enabled && (

@@ -172,7 +172,7 @@ const Services = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="text-lg font-semibold text-slotta-ink">{service.name}</h3>
-                    {!service.active && <span className="px-2 py-0.5 rounded-full text-xs bg-gray-100 text-gray-600">Inactive</span>}
+                    {!service.active && <span className="px-2 py-0.5 rounded-full text-xs bg-gray-50 text-slotta-ink-soft">Inactive</span>}
                   </div>
                   <div className="grid grid-cols-3 gap-6">
                     <div>
@@ -238,7 +238,7 @@ const Services = () => {
               {[
                 { label: 'New client', value: '+20%', color: 'bg-yellow-50 text-yellow-700' },
                 { label: 'Reliable client', value: '-20%', color: 'bg-green-50 text-green-700' },
-                { label: 'Peak slot demand', value: '+15%', color: 'bg-blue-50 text-blue-700' },
+                { label: 'Peak slot demand', value: '+15%', color: 'bg-slotta-purple-50 text-slotta-purple' },
                 { label: 'Cancellation history', value: '+30%', color: 'bg-red-50 text-red-700' },
               ].map((row, i) => (
                 <div key={i} className="flex items-center justify-between p-2 rounded-lg hover:bg-slotta-purple-50/30">

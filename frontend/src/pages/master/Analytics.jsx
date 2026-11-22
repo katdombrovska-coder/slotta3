@@ -225,7 +225,7 @@ const Analytics = () => {
           {[
             { value: analytics.no_shows, label: 'Total No-Shows', bg: 'bg-slotta-purple-50', text: 'text-slotta-purple' },
             { value: `€${Math.round(analytics.no_shows * (analytics.avg_slotta || 25) * 0.6)}`, label: 'Recovered Revenue', bg: 'bg-green-50', text: 'text-green-600' },
-            { value: `${Math.round(analytics.no_shows * (analytics.avg_slotta || 60) / 60)}h`, label: 'Time Compensated', bg: 'bg-blue-50', text: 'text-blue-600' },
+            { value: `${Math.round(analytics.no_shows * (analytics.avg_slotta || 60) / 60)}h`, label: 'Time Compensated', bg: 'bg-slotta-purple-50', text: 'text-slotta-purple' },
             { value: `${analytics.no_show_rate?.toFixed(1) || '0.0'}%`, label: 'No-Show Rate', bg: 'bg-yellow-50', text: 'text-yellow-600' },
           ].map((stat, idx) => (
             <div key={idx} className={`text-center p-5 ${stat.bg} rounded-xl`}>

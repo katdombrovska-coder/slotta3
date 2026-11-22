@@ -375,8 +375,8 @@ const Dashboard = () => {
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       booking.status === 'confirmed' ? 'bg-green-50 text-green-700' :
                       booking.status === 'pending' ? 'bg-yellow-50 text-yellow-700' :
-                      booking.status === 'completed' ? 'bg-blue-50 text-blue-700' :
-                      'bg-gray-50 text-gray-600'
+                      booking.status === 'completed' ? 'bg-slotta-purple-50 text-slotta-purple' :
+                      'bg-gray-50 text-slotta-ink-soft'
                     }`}>
                       {booking.status}
                     </span>

@@ -70,8 +70,8 @@ const ClientPortal = () => {
   const statusColors = {
     confirmed: 'bg-green-50 text-green-700',
     pending: 'bg-yellow-50 text-yellow-700',
-    completed: 'bg-blue-50 text-blue-700',
-    cancelled: 'bg-gray-100 text-gray-600',
+    completed: 'bg-slotta-purple-50 text-slotta-purple',
+    cancelled: 'bg-gray-50 text-slotta-ink-soft',
     'no-show': 'bg-red-50 text-red-600',
   };
 
@@ -270,7 +270,7 @@ const ClientPortal = () => {
                           <h3 className="text-lg font-semibold text-slotta-ink mb-1">{booking.service_name || 'Service'}</h3>
                           <p className="text-sm text-slotta-ink-soft">with {booking.master_name || 'Professional'}</p>
                         </div>
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-100 text-gray-600'}`}>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${statusColors[booking.status] || 'bg-gray-50 text-slotta-ink-soft'}`}>
                           {booking.status}
                         </span>
                       </div>

@@ -58,7 +58,7 @@ const BookingDetail = () => {
     confirmed: { bg: 'bg-slotta-lime-50', text: 'text-slotta-lime-dark', label: 'Confirmed' },
     pending: { bg: 'bg-yellow-50', text: 'text-yellow-700', label: 'Pending' },
     completed: { bg: 'bg-slotta-purple-50', text: 'text-slotta-purple', label: 'Completed' },
-    cancelled: { bg: 'bg-gray-100', text: 'text-gray-600', label: 'Cancelled' },
+    cancelled: { bg: 'bg-gray-50', text: 'text-slotta-ink-soft', label: 'Cancelled' },
     'no-show': { bg: 'bg-red-50', text: 'text-red-600', label: 'No-Show' },
   };
 
@@ -221,7 +221,7 @@ const BookingDetail = () => {
                   </div>
                   <div className="text-right">
                     {client?.reliability && (
-                      <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${reliabilityStyles[client.reliability]?.bg || 'bg-gray-100'} ${reliabilityStyles[client.reliability]?.text || 'text-gray-600'}`}>
+                      <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${reliabilityStyles[client.reliability]?.bg || 'bg-gray-50'} ${reliabilityStyles[client.reliability]?.text || 'text-slotta-ink-soft'}`}>
                         {client.reliability === 'reliable' && <CheckCircle className="w-3 h-3" />}
                         {client.reliability === 'needs-protection' && <AlertTriangle className="w-3 h-3" />}
                         {reliabilityStyles[client.reliability]?.label || client.reliability}
