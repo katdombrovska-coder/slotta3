@@ -40,10 +40,10 @@ const WhoItsFor = () => {
           viewport={{ once: true }}
           className="text-center space-y-6 mb-20"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">
             Who It Is For
           </h2>
-          <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-slotta-ink-soft max-w-2xl mx-auto">
             Perfect for anyone who books appointments and values their time
           </p>
         </motion.div>
@@ -58,15 +58,15 @@ const WhoItsFor = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="glass-card feature-card rounded-3xl p-8"
+                className="slotta-card feature-card rounded-3xl p-8"
               >
-                <div className="icon-glow w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                <div className="section-icon w-14 h-14 mb-6">
+                  <Icon className="w-7 h-7 text-slotta-purple" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-3 tracking-tight">
+                <h3 className="text-2xl font-bold text-slotta-ink mb-3 tracking-tight">
                   {category.title}
                 </h3>
-                <p className="text-base text-white/50 leading-relaxed">
+                <p className="text-base text-slotta-ink-soft leading-relaxed">
                   {category.description}
                 </p>
               </motion.div>

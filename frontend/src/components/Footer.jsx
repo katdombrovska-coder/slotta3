@@ -53,7 +53,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="footer" className="border-t border-white/10">
+    <footer id="footer" className="border-t border-slotta-purple/10 bg-slotta-purple-50/30">
       <div className="container-apple py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 text-center lg:text-left">
           <div className="lg:col-span-2 space-y-6 flex flex-col items-center lg:items-start">
@@ -63,10 +63,13 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold">
-                <span className="text-gradient">SLOTTA</span>
+              <h3 className="text-2xl font-bold flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-slotta-purple flex items-center justify-center">
+                  <span className="text-white text-base font-bold leading-none">Ø</span>
+                </span>
+                <span className="text-slotta-ink">SLØTTA</span>
               </h3>
-              <p className="text-sm text-white/50 mt-4 max-w-xs">
+              <p className="text-sm text-slotta-ink-soft mt-4 max-w-xs">
                 Smart booking protection that keeps your schedule full and your income safe.
               </p>
             </motion.div>
@@ -83,9 +86,9 @@ const Footer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="w-10 h-10 rounded-full glass-button flex items-center justify-center"
+                    className="w-10 h-10 rounded-full slotta-button-outline flex items-center justify-center"
                   >
-                    <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                    <Icon className="w-5 h-5 text-slotta-purple" strokeWidth={1.5} />
                   </motion.a>
                 );
               })}
@@ -103,7 +106,7 @@ const Footer = () => {
             >
               <h4
                 className={`font-semibold text-sm ${
-                  category === 'FAQ Routes' ? 'text-gradient neon-text' : 'text-white'
+                  category === 'FAQ Routes' ? 'text-gradient' : 'text-slotta-ink'
                 }`}
               >
                 {category}
@@ -113,9 +116,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.href}
-                      className={`text-sm text-white/50 hover:text-white transition-colors duration-200 ${
-                        category === 'FAQ Routes' ? 'hover:text-white neon-text' : ''
-                      }`}
+                      className="text-sm text-slotta-ink-soft hover:text-slotta-purple transition-colors duration-200"
                       onClick={(event) => handleFooterClick(event, link.href)}
                     >
                       {link.label}
@@ -132,12 +133,12 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
+          className="mt-16 pt-8 border-t border-slotta-purple/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} Slotta. All rights reserved.
+          <p className="text-sm text-slotta-ink-soft">
+            © {new Date().getFullYear()} SLØTTA. All rights reserved.
           </p>
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-slotta-ink-soft">
             Made with care for service professionals worldwide
           </p>
         </motion.div>

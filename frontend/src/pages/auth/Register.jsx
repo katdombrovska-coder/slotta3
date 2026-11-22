@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { authAPI } from '@/lib/api';
-import { Clock, Mail, Lock, User, Link as LinkIcon, AlertCircle, CheckCircle } from 'lucide-react';
+import { Mail, Lock, User, Link as LinkIcon, AlertCircle, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,30 +22,21 @@ const Register = () => {
 
   const handleNameChange = (e) => {
     const name = e.target.value;
-    setFormData({
-      ...formData,
-      name,
-      booking_slug: generateSlug(name)
-    });
+    setFormData({ ...formData, name, booking_slug: generateSlug(name) });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-
-    // Validate password length
     if (formData.password.length < 6) {
       setError('Password must be at least 6 characters');
       return;
     }
-
-    // Validate slug
     if (formData.booking_slug.length < 3) {
       setError('Booking link must be at least 3 characters');
       return;
@@ -67,12 +54,8 @@ const Register = () => {
       });
 
       const { token, master } = response.data;
-      
-      // Store auth data
       authAPI.setToken(token);
       authAPI.setMaster(master);
-      
-      // Redirect to dashboard
       navigate('/master/dashboard');
     } catch (err) {
       setError(err.response?.data?.detail || 'Registration failed. Please try again.');
@@ -81,107 +64,111 @@ const Register = () => {
     }
   };
 
+  const inputClass = "w-full pl-10 pr-4 py-3 rounded-xl border border-slotta-purple/15 bg-white text-slotta-ink placeholder:text-slotta-ink-soft/40 focus:outline-none focus:ring-2 focus:ring-slotta-purple/30 focus:border-slotta-purple/30 transition";
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2">
-            <Clock className="w-10 h-10 text-purple-600" />
-            <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Slotta
+    <div className="min-h-screen flex items-center justify-center p-4 bg-slotta-cream mesh-gradient">
+      <div className="gradient-orb gradient-orb-1" />
+      <div className="gradient-orb gradient-orb-2" />
+
+      <div className="w-full max-w-md relative z-10">
+        <div className="text-center mb-10">
+          <Link to="/" className="inline-flex items-center gap-2">
+            <span className="w-10 h-10 rounded-full bg-slotta-purple flex items-center justify-center">
+              <span className="text-white text-lg font-bold leading-none">Ø</span>
             </span>
+            <span className="text-2xl font-bold text-slotta-ink">SLØTTA</span>
           </Link>
-          <p className="text-gray-600 mt-2">Create your professional account</p>
+          <p className="text-slotta-ink-soft mt-3 text-sm">Create your professional account</p>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-center">Create Account</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {error && (
-                <div className="flex items-center space-x-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                  <span>{error}</span>
-                </div>
-              )}
+        <div className="slotta-card rounded-3xl p-8 md:p-10">
+          <h2 className="text-2xl font-bold text-slotta-ink mb-8 text-center">Create Account</h2>
 
-              <div className="space-y-2">
-                <Label>Full Name</Label>
-                <div className="relative">
-                  <User className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <Input
-                    type="text"
-                    value={formData.name}
-                    onChange={handleNameChange}
-                    className="pl-10"
-                    placeholder="Sophia Brown"
-                    required
-                    data-testid="register-name"
-                  />
-                </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                <span>{error}</span>
               </div>
+            )}
 
-              <div className="space-y-2">
-                <Label>Email</Label>
-                <div className="relative">
-                  <Mail className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="pl-10"
-                    placeholder="you@example.com"
-                    required
-                    data-testid="register-email"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label>Specialty (optional)</Label>
-                <Input
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slotta-ink">Full Name</label>
+              <div className="relative">
+                <User className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slotta-ink-soft/50" />
+                <input
                   type="text"
-                  value={formData.specialty}
-                  onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
-                  placeholder="e.g., Hair Stylist, Makeup Artist"
-                  data-testid="register-specialty"
+                  value={formData.name}
+                  onChange={handleNameChange}
+                  className={inputClass}
+                  placeholder="Sophia Brown"
+                  required
+                  data-testid="register-name"
                 />
               </div>
+            </div>
 
-              <div className="space-y-2">
-                <Label>Your Booking Link</Label>
-                <div className="relative">
-                  <LinkIcon className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <div className="flex items-center">
-                    <span className="pl-10 pr-1 py-3 bg-gray-50 border border-r-0 rounded-l-lg text-gray-500 text-sm">
-                      slotta.app/
-                    </span>
-                    <Input
-                      type="text"
-                      value={formData.booking_slug}
-                      onChange={(e) => setFormData({ ...formData, booking_slug: e.target.value.toLowerCase().replace(/[^a-z0-9]/g, '') })}
-                      className="flex-1 rounded-l-none border-l-0"
-                      placeholder="yourname"
-                      required
-                      data-testid="register-slug"
-                    />
-                  </div>
-                </div>
-                <p className="text-xs text-gray-500 mt-1">This is the link your clients will use to book with you</p>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slotta-ink">Email</label>
+              <div className="relative">
+                <Mail className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slotta-ink-soft/50" />
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={inputClass}
+                  placeholder="you@example.com"
+                  required
+                  data-testid="register-email"
+                />
               </div>
+            </div>
 
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slotta-ink">Specialty (optional)</label>
+              <input
+                type="text"
+                value={formData.specialty}
+                onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
+                className="w-full px-4 py-3 rounded-xl border border-slotta-purple/15 bg-white text-slotta-ink placeholder:text-slotta-ink-soft/40 focus:outline-none focus:ring-2 focus:ring-slotta-purple/30 focus:border-slotta-purple/30 transition"
+                placeholder="e.g., Hair Stylist, Makeup Artist"
+                data-testid="register-specialty"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slotta-ink">Your Booking Link</label>
+              <div className="relative">
+                <LinkIcon className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slotta-ink-soft/50 z-10" />
+                <div className="flex items-center">
+                  <span className="pl-10 pr-1 py-3 bg-slotta-purple-50 border border-r-0 border-slotta-purple/15 rounded-l-xl text-slotta-ink-soft text-sm">
+                    slotta.app/
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.booking_slug}
+                    onChange={(e) => setFormData({ ...formData, booking_slug: e.target.value.toLowerCase().replace(/[^a-z0-9]/g, '') })}
+                    className="flex-1 px-3 py-3 border border-slotta-purple/15 bg-white text-slotta-ink placeholder:text-slotta-ink-soft/40 rounded-r-xl focus:outline-none focus:ring-2 focus:ring-slotta-purple/30 focus:border-slotta-purple/30 transition"
+                    placeholder="yourname"
+                    required
+                    data-testid="register-slug"
+                  />
+                </div>
+              </div>
+              <p className="text-xs text-slotta-ink-soft mt-1">This is the link your clients will use to book with you</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
-                <Label>Password</Label>
+                <label className="text-sm font-medium text-slotta-ink">Password</label>
                 <div className="relative">
-                  <Lock className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <Input
+                  <Lock className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slotta-ink-soft/50" />
+                  <input
                     type="password"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    className="pl-10"
+                    className={inputClass}
                     placeholder="••••••••"
                     required
                     minLength={6}
@@ -191,46 +178,47 @@ const Register = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Confirm Password</Label>
+                <label className="text-sm font-medium text-slotta-ink">Confirm</label>
                 <div className="relative">
-                  <Lock className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <Input
+                  <Lock className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slotta-ink-soft/50" />
+                  <input
                     type="password"
                     value={formData.confirmPassword}
                     onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                    className="pl-10"
+                    className={inputClass}
                     placeholder="••••••••"
                     required
                     data-testid="register-confirm-password"
                   />
                 </div>
               </div>
-
-              <Button
-                type="submit"
-                className="w-full py-3"
-                disabled={loading}
-                data-testid="register-submit"
-              >
-                {loading ? 'Creating Account...' : 'Create Account'}
-              </Button>
-            </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-gray-600">
-                Already have an account?{' '}
-                <Link to="/login" className="text-purple-600 font-medium hover:underline">
-                  Sign in
-                </Link>
-              </p>
             </div>
-          </CardContent>
-        </Card>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3.5 rounded-full font-medium text-base text-white slotta-button flex items-center justify-center gap-2 disabled:opacity-60 mt-2"
+              data-testid="register-submit"
+            >
+              {loading ? 'Creating Account...' : 'Create Account'}
+              {!loading && <ArrowRight className="w-5 h-5" strokeWidth={1.5} />}
+            </button>
+          </form>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-slotta-ink-soft">
+              Already have an account?{' '}
+              <Link to="/login" className="text-slotta-purple font-medium hover:underline">
+                Sign in
+              </Link>
+            </p>
+          </div>
+        </div>
 
         <div className="mt-6 text-center">
-          <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
-            <CheckCircle className="w-4 h-4 text-green-500" />
-            <span>Free to start • No credit card required</span>
+          <div className="flex items-center justify-center gap-2 text-sm text-slotta-ink-soft">
+            <CheckCircle className="w-4 h-4 text-slotta-lime-dark" />
+            <span>Free to start. No credit card required.</span>
           </div>
         </div>
       </div>

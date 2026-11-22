@@ -47,23 +47,26 @@ const Navigation = () => {
         isScrolled ? 'nav-glass' : 'bg-transparent'
       }`}
     >
-      <nav className="container-apple py-6">
+      <nav className="container-apple py-5">
         <div className="flex items-center justify-between">
           <motion.a
             href="#"
-            className="text-2xl font-semibold tracking-tight"
+            className="text-2xl font-bold tracking-tight flex items-center gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-gradient">SLOTTA</span>
+            <span className="w-9 h-9 rounded-full bg-slotta-purple flex items-center justify-center">
+              <span className="text-white text-lg font-bold leading-none">Ø</span>
+            </span>
+            <span className="text-slotta-ink">SLØTTA</span>
           </motion.a>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+                className="text-sm font-medium text-slotta-ink-soft hover:text-slotta-purple transition-colors duration-200"
                 onClick={(event) => handleNavClick(event, link.href)}
               >
                 {link.name}
@@ -73,7 +76,7 @@ const Navigation = () => {
               <button
                 key={link.name}
                 type="button"
-                className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200"
+                className="text-sm font-medium text-slotta-ink-soft hover:text-slotta-purple transition-colors duration-200"
                 onClick={() => navigate(link.to)}
               >
                 {link.name}
@@ -81,15 +84,15 @@ const Navigation = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             <button
-              className="px-6 py-3 rounded-full font-medium text-base text-white glass-button"
+              className="px-5 py-2.5 rounded-full font-medium text-sm text-slotta-purple slotta-button-outline"
               onClick={() => navigate('/login')}
             >
               Sign In
             </button>
             <button
-              className="px-6 py-3 rounded-full font-medium text-base text-white glass-button-primary"
+              className="px-5 py-2.5 rounded-full font-medium text-sm text-white slotta-button"
               onClick={() => navigate('/register')}
             >
               Start Free Trial
@@ -97,7 +100,7 @@ const Navigation = () => {
           </div>
 
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-slotta-ink"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -112,13 +115,13 @@ const Navigation = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-6 space-y-4"
+              className="md:hidden mt-5 space-y-4"
             >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-sm font-medium text-white/60 hover:text-white transition-colors py-2"
+                  className="block text-sm font-medium text-slotta-ink-soft hover:text-slotta-purple transition-colors py-2"
                   onClick={(event) => handleNavClick(event, link.href)}
                 >
                   {link.name}
@@ -128,7 +131,7 @@ const Navigation = () => {
                 <button
                   key={link.name}
                   type="button"
-                  className="block text-left text-sm font-medium text-white/60 hover:text-white transition-colors py-2"
+                  className="block text-left text-sm font-medium text-slotta-ink-soft hover:text-slotta-purple transition-colors py-2"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     navigate(link.to);
@@ -139,7 +142,7 @@ const Navigation = () => {
               ))}
               <div className="space-y-3 pt-4">
                 <button
-                  className="w-full px-6 py-3 rounded-full font-medium text-base text-white glass-button"
+                  className="w-full px-5 py-2.5 rounded-full font-medium text-sm text-slotta-purple slotta-button-outline"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     navigate('/login');
@@ -148,7 +151,7 @@ const Navigation = () => {
                   Sign In
                 </button>
                 <button
-                  className="w-full px-6 py-3 rounded-full font-medium text-base text-white glass-button-primary"
+                  className="w-full px-5 py-2.5 rounded-full font-medium text-sm text-white slotta-button"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     navigate('/register');

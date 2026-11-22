@@ -15,19 +15,19 @@ const CTASection = () => {
           className="max-w-4xl mx-auto text-center space-y-12"
         >
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">
               Ready to stop
               <br />
               <span className="text-gradient">losing money?</span>
             </h2>
-            <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto">
-              Join thousands of professionals protecting their time and income with Slotta.
+            <p className="text-base md:text-lg text-slotta-ink-soft max-w-2xl mx-auto">
+              Join thousands of professionals protecting their time and income with SLØTTA.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              className="px-8 py-4 rounded-full font-medium text-base text-white glass-button-primary w-full sm:w-auto"
+              className="px-8 py-4 rounded-full font-medium text-base text-white slotta-button w-full sm:w-auto"
               onClick={() => navigate('/register')}
             >
               Get Started Free
@@ -35,7 +35,7 @@ const CTASection = () => {
             </button>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-white/40">
+          <div className="flex flex-wrap justify-center gap-8 text-sm text-slotta-ink-soft">
             <div className="flex items-center gap-2">
               <div className="trust-dot" />
               <span>First month free</span>

@@ -6,7 +6,7 @@ const FeaturesSection = () => {
     {
       icon: Lock,
       title: 'Hold, Do Not Charge',
-      description: 'Slotta places a hold on your client card - no money taken until they show. Fair for both sides.',
+      description: 'Slotta places a hold on your client card. No money taken until they show. Fair for both sides.',
     },
     {
       icon: Brain,
@@ -35,8 +35,8 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-center space-y-6 mb-20"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
-            Enter <span className="text-gradient">Slotta</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">
+            Enter <span className="text-gradient">SLØTTA</span>
           </h2>
         </motion.div>
 
@@ -51,15 +51,15 @@ const FeaturesSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass-card feature-card rounded-3xl p-8 md:p-10 text-center"
+                  className="slotta-card feature-card rounded-3xl p-8 md:p-10 text-center"
                 >
-                  <div className="icon-glow w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                    <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  <div className="section-icon w-14 h-14 mb-6 mx-auto">
+                    <Icon className="w-7 h-7 text-slotta-purple" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slotta-ink mb-4 tracking-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-base text-white/50 leading-relaxed">
+                  <p className="text-base text-slotta-ink-soft leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>

@@ -11,7 +11,7 @@ const InsightSection = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto text-center"
         >
-          <p className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+          <p className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">
             You don&apos;t need full upfront payment
             <br />
             <span className="text-gradient">You need fairness</span>

@@ -13,12 +13,12 @@ const HeroSection = () => {
   return (
     <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 overflow-hidden">
       <div className="container-apple relative z-10">
-        <div className="max-w-6xl mx-auto text-center space-y-12">
+        <div className="max-w-6xl mx-auto text-center space-y-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center px-4 py-2 rounded-full badge-glass text-sm text-white/70 uppercase tracking-wider"
+            className="inline-flex items-center pill-badge"
           >
             Smart Booking Protection System
           </motion.div>
@@ -29,12 +29,12 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-semibold hero-headline">
-              Your SLOTTA
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold hero-headline text-slotta-ink">
+              Your SLØTTA
               <br />
               <span className="text-gradient">They Show</span>
             </h1>
-            <p className="text-base md:text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-slotta-ink-soft leading-relaxed max-w-3xl mx-auto">
               A smart hold system that keeps your schedule full and your income safe.
             </p>
           </motion.div>
@@ -43,7 +43,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-3"
           >
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -52,8 +52,8 @@ const HeroSection = () => {
                   key={index}
                   className="benefit-badge flex items-center gap-3 rounded-full px-5 py-3"
                 >
-                  <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
-                  <span className="text-sm text-white/80 font-medium">{benefit.text}</span>
+                  <Icon className="w-5 h-5 text-slotta-purple" strokeWidth={1.5} />
+                  <span className="text-sm text-slotta-ink-soft font-medium">{benefit.text}</span>
                 </div>
               );
             })}
@@ -66,13 +66,13 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
             <button
-              className="px-8 py-4 rounded-full font-medium text-base text-white glass-button-primary w-full sm:w-auto"
+              className="px-8 py-4 rounded-full font-medium text-base text-slotta-ink slotta-button-accent w-full sm:w-auto"
               onClick={() => navigate('/sophiabrown')}
             >
               Try Live Demo
             </button>
             <button
-              className="px-8 py-4 rounded-full font-medium text-base text-white glass-button w-full sm:w-auto"
+              className="px-8 py-4 rounded-full font-medium text-base text-white slotta-button w-full sm:w-auto"
               onClick={() => navigate('/register')}
             >
               Start Free Trial
@@ -83,7 +83,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-sm text-white/40"
+            className="text-sm text-slotta-ink-soft"
           >
             First month free • No credit card required • Cancel anytime
           </motion.p>

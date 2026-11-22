@@ -14,11 +14,10 @@ import Footer from '@/components/Footer';
 
 const HomePage = () => {
   return (
-    <div className="relative min-h-screen bg-black text-white mesh-gradient">
+    <div className="relative min-h-screen bg-cream text-slotta-ink mesh-gradient">
       <div className="gradient-orb gradient-orb-1" />
       <div className="gradient-orb gradient-orb-2" />
       <div className="gradient-orb gradient-orb-3" />
-      <div className="grain" />
 
       <Navigation />
       <main>

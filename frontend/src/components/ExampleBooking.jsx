@@ -42,62 +42,62 @@ const ExampleBooking = () => {
           className="max-w-5xl mx-auto"
         >
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">See It In Action</h2>
-            <p className="text-base md:text-lg text-white/50">A real booking scenario</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-slotta-ink">See It In Action</h2>
+            <p className="text-base md:text-lg text-slotta-ink-soft">A real booking scenario</p>
           </div>
 
-          <div className="glass-card rounded-3xl p-8 md:p-12">
+          <div className="slotta-card rounded-3xl p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="space-y-8">
                 <div className="space-y-3">
-                  <p className="text-sm text-white/40 uppercase tracking-wider">Service</p>
-                  <p className="text-2xl font-semibold text-white">1-Hour Consultation</p>
+                  <p className="text-sm text-slotta-ink-soft uppercase tracking-wider">Service</p>
+                  <p className="text-2xl font-bold text-slotta-ink">1-Hour Consultation</p>
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm text-white/40 uppercase tracking-wider">Full Price</p>
+                  <p className="text-sm text-slotta-ink-soft uppercase tracking-wider">Full Price</p>
                   <p className="text-4xl font-bold text-gradient">€150</p>
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-sm text-white/40 uppercase tracking-wider">Slotta Hold</p>
+                  <p className="text-sm text-slotta-ink-soft uppercase tracking-wider">SLØTTA Hold</p>
                   <div className="flex items-baseline gap-2">
-                    <motion.p className="text-4xl font-bold text-white number-glow" key={animatedHold}>
+                    <motion.p className="text-4xl font-bold text-slotta-ink number-glow" key={animatedHold}>
                       €{animatedHold}
                     </motion.p>
-                    <span className="text-sm text-white/40">(30% of price)</span>
+                    <span className="text-sm text-slotta-ink-soft">(30% of price)</span>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-6 md:pl-8 md:border-l md:border-white/10">
+              <div className="space-y-6 md:pl-8 md:border-l md:border-slotta-purple/10">
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="trust-dot mt-2" />
                     <div>
-                      <p className="font-semibold text-white">They show up?</p>
-                      <p className="text-white/50">Hold released. They pay €150 as normal.</p>
+                      <p className="font-semibold text-slotta-ink">They show up?</p>
+                      <p className="text-slotta-ink-soft">Hold released. They pay €150 as normal.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <div className="trust-dot mt-2" />
                     <div>
-                      <p className="font-semibold text-white">They cancel with 48h+ notice?</p>
-                      <p className="text-white/50">Hold released. No charge.</p>
+                      <p className="font-semibold text-slotta-ink">They cancel with 48h+ notice?</p>
+                      <p className="text-slotta-ink-soft">Hold released. No charge.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <div className="trust-dot mt-2" />
                     <div>
-                      <p className="font-semibold text-white">They no-show or cancel last minute?</p>
+                      <p className="font-semibold text-slotta-ink">They no-show or cancel last minute?</p>
                       <div className="flex items-baseline gap-2 mt-1">
-                        <p className="text-white/50">You receive</p>
+                        <p className="text-slotta-ink-soft">You receive</p>
                         <motion.span className="text-xl font-bold text-gradient" key={animatedCompensation}>
                           €{animatedCompensation}
                         </motion.span>
-                        <span className="text-sm text-white/40">(20% compensation)</span>
+                        <span className="text-sm text-slotta-ink-soft">(20% compensation)</span>
                       </div>
                     </div>
                   </div>

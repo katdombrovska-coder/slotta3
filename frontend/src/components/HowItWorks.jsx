@@ -12,14 +12,14 @@ const HowItWorks = () => {
     {
       number: '02',
       icon: Cpu,
-      title: 'Slotta calculated',
+      title: 'SLØTTA calculated',
       description: 'Our AI determines the optimal hold amount based on your service and history.',
     },
     {
       number: '03',
       icon: CreditCard,
       title: 'Card authorized',
-      description: 'A hold is placed on their card - no money charged yet.',
+      description: 'A hold is placed on their card. No money charged yet.',
     },
     {
       number: '04',
@@ -39,8 +39,8 @@ const HowItWorks = () => {
           viewport={{ once: true }}
           className="text-center space-y-6 mb-20"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">How It Works</h2>
-          <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">How It Works</h2>
+          <p className="text-base md:text-lg text-slotta-ink-soft max-w-2xl mx-auto">
             Four simple steps to protect your time and income
           </p>
         </motion.div>
@@ -59,20 +59,20 @@ const HowItWorks = () => {
                   className="relative"
                 >
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-12 left-full w-full h-px bg-gradient-to-r from-primary/40 to-transparent transform -translate-x-1/2" />
+                    <div className="hidden lg:block absolute top-12 left-full w-full h-px bg-gradient-to-r from-slotta-purple/30 to-transparent transform -translate-x-1/2" />
                   )}
 
                   <div className="space-y-6 text-center">
                     <div className="flex flex-col items-center gap-4">
-                      <span className="text-5xl font-bold text-white/10 number-glow">{step.number}</span>
-                      <div className="icon-glow w-12 h-12 rounded-2xl flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      <span className="text-5xl font-bold text-slotta-purple/10 number-glow">{step.number}</span>
+                      <div className="section-icon w-12 h-12">
+                        <Icon className="w-6 h-6 text-slotta-purple" strokeWidth={1.5} />
                       </div>
                     </div>
 
                     <div className="space-y-3">
-                      <h3 className="text-xl font-semibold tracking-tight text-white">{step.title}</h3>
-                      <p className="text-sm md:text-base text-white/50 leading-relaxed">
+                      <h3 className="text-xl font-bold tracking-tight text-slotta-ink">{step.title}</h3>
+                      <p className="text-sm md:text-base text-slotta-ink-soft leading-relaxed">
                         {step.description}
                       </p>
                     </div>

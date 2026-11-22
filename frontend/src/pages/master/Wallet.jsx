@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MasterLayout } from './Dashboard';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { walletAPI, authAPI, stripeAPI } from '@/lib/api';
-import { DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Download, ExternalLink, Loader2 } from 'lucide-react';
+import { Wallet as WalletIcon, TrendingUp, ArrowDownCircle, ArrowUpCircle, Download, ExternalLink, Loader2, DollarSign } from 'lucide-react';
 
 const Wallet = () => {
   const [loading, setLoading] = useState(true);
@@ -19,9 +16,7 @@ const Wallet = () => {
   const masterId = master?.id;
 
   useEffect(() => {
-    if (masterId) {
-      loadWalletData();
-    }
+    if (masterId) loadWalletData();
   }, [masterId]);
 
   const loadWalletData = async () => {
@@ -29,8 +24,8 @@ const Wallet = () => {
       setLoading(true);
       const response = await walletAPI.getWallet(masterId);
       setWalletData(response.data);
-    } catch (error) {
-      console.error('Failed to load wallet:', error);
+    } catch (err) {
+      console.error('Failed to load wallet:', err);
     } finally {
       setLoading(false);
     }
@@ -45,8 +40,7 @@ const Wallet = () => {
       } else {
         alert('Please complete Stripe onboarding first in Settings.');
       }
-    } catch (error) {
-      console.error('Failed to open Stripe dashboard:', error);
+    } catch (err) {
       alert('Unable to open Stripe dashboard. Please complete onboarding in Settings first.');
     } finally {
       setStripeLoading(false);
@@ -59,198 +53,144 @@ const Wallet = () => {
     <MasterLayout active="wallet" title="Wallet & Payouts">
       {/* Balance Cards */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <Card className="bg-gradient-to-br from-purple-600 to-pink-600 text-white">
-          <CardContent className="p-6">
+        {/* Main balance - purple gradient */}
+        <div className="slotta-card rounded-3xl p-6 bg-gradient-to-br from-slotta-purple to-slotta-purple-dark text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
+          <div className="relative">
             <div className="flex items-center justify-between mb-4">
-              <DollarSign className="w-8 h-8" />
-              <Badge variant="success">Available</Badge>
+              <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center">
+                <WalletIcon className="w-6 h-6 text-white" strokeWidth={1.5} />
+              </div>
+              <span className="px-3 py-1 rounded-full bg-white/15 text-xs font-medium">Available</span>
             </div>
-            <div className="text-4xl font-bold mb-2" data-testid="wallet-balance">
+            <div className="text-4xl font-bold mb-1" data-testid="wallet-balance">
               €{loading ? '...' : wallet_balance}
             </div>
-            <div className="text-purple-100">Current Balance</div>
-            <Button className="w-full mt-4 bg-white text-purple-600 hover:bg-gray-100" data-testid="payout-now-btn">
+            <div className="text-white/70 text-sm">Current Balance</div>
+            <button className="w-full mt-4 py-2.5 rounded-full bg-slotta-lime text-slotta-ink font-semibold text-sm hover:bg-slotta-lime-dark transition">
               Request Payout
-            </Button>
-          </CardContent>
-        </Card>
+            </button>
+          </div>
+        </div>
 
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between mb-4">
-              <TrendingUp className="w-8 h-8 text-yellow-600" />
-            </div>
-            <div className="text-4xl font-bold mb-2 text-yellow-600">
-              €{loading ? '...' : pending_payouts}
-            </div>
-            <div className="text-gray-600">Pending Payouts</div>
-            <div className="text-sm text-gray-500 mt-2">From ongoing bookings</div>
-          </CardContent>
-        </Card>
+        {/* Pending */}
+        <div className="slotta-card rounded-3xl p-6">
+          <div className="w-12 h-12 rounded-xl bg-slotta-lime-50 border border-slotta-lime/20 flex items-center justify-center mb-4">
+            <TrendingUp className="w-6 h-6 text-slotta-lime-dark" strokeWidth={1.5} />
+          </div>
+          <div className="text-4xl font-bold text-slotta-ink mb-1">€{loading ? '...' : pending_payouts}</div>
+          <div className="text-sm text-slotta-ink-soft">Pending Payouts</div>
+          <div className="text-xs text-slotta-ink-soft mt-2">From ongoing bookings</div>
+        </div>
 
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between mb-4">
-              <ArrowUpCircle className="w-8 h-8 text-green-600" />
-            </div>
-            <div className="text-4xl font-bold mb-2 text-green-600">
-              €{loading ? '...' : lifetime_earnings}
-            </div>
-            <div className="text-gray-600">Lifetime Earnings</div>
-            <div className="text-sm text-gray-500 mt-2">Total from Slotta</div>
-          </CardContent>
-        </Card>
+        {/* Lifetime */}
+        <div className="slotta-card rounded-3xl p-6">
+          <div className="w-12 h-12 rounded-xl bg-slotta-purple-50 border border-slotta-purple/10 flex items-center justify-center mb-4">
+            <ArrowUpCircle className="w-6 h-6 text-slotta-purple" strokeWidth={1.5} />
+          </div>
+          <div className="text-4xl font-bold text-slotta-ink mb-1">€{loading ? '...' : lifetime_earnings}</div>
+          <div className="text-sm text-slotta-ink-soft">Lifetime Earnings</div>
+          <div className="text-xs text-slotta-ink-soft mt-2">Total from SLØ</div>
+        </div>
       </div>
 
       {/* Upcoming Payouts */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Upcoming Automatic Payouts</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {pending_payouts > 0 ? (
-            <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
-              <div>
-                <div className="font-semibold text-lg">Next Payout</div>
-                <div className="text-sm text-gray-600">Processing when bookings complete</div>
-              </div>
-              <div className="text-right">
-                <div className="text-3xl font-bold text-purple-600">€{pending_payouts}</div>
-                <div className="text-sm text-gray-500">Estimated</div>
-              </div>
+      <div className="slotta-card rounded-2xl p-6 mb-8">
+        <h3 className="text-lg font-semibold text-slotta-ink mb-4">Upcoming Automatic Payouts</h3>
+        {pending_payouts > 0 ? (
+          <div className="flex items-center justify-between p-4 bg-slotta-purple-50 rounded-xl">
+            <div>
+              <div className="font-semibold text-slotta-ink">Next Payout</div>
+              <div className="text-sm text-slotta-ink-soft">Processing when bookings complete</div>
             </div>
-          ) : (
-            <div className="text-center py-4 text-gray-500">No pending payouts</div>
-          )}
-        </CardContent>
-      </Card>
+            <div className="text-right">
+              <div className="text-3xl font-bold text-slotta-purple">€{pending_payouts}</div>
+              <div className="text-sm text-slotta-ink-soft">Estimated</div>
+            </div>
+          </div>
+        ) : (
+          <div className="text-center py-6 text-slotta-ink-soft">No pending payouts</div>
+        )}
+      </div>
 
       {/* Transaction History */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle>Transaction History</CardTitle>
-            <Button variant="outline" size="sm">
-              <Download className="w-4 h-4 mr-2" />
-              Export CSV
-            </Button>
-          </div>
-        </CardHeader>
-        <CardContent>
+      <div className="slotta-card rounded-2xl overflow-hidden mb-8">
+        <div className="p-5 border-b border-slotta-purple/8 flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-slotta-ink">Transaction History</h3>
+          <button className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slotta-purple/10 text-sm text-slotta-ink-soft hover:border-slotta-purple/30 transition">
+            <Download className="w-3.5 h-3.5" />
+            Export CSV
+          </button>
+        </div>
+        <div className="p-5">
           {loading ? (
-            <div className="text-center py-8 text-gray-500">Loading transactions...</div>
+            <div className="text-center py-8 text-slotta-ink-soft">Loading transactions...</div>
           ) : transactions.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">No transactions yet</div>
+            <div className="text-center py-8 text-slotta-ink-soft">No transactions yet</div>
           ) : (
             <div className="space-y-3">
               {transactions.map((transaction, idx) => (
-                <div
-                  key={transaction.id || idx}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition"
-                  data-testid={`transaction-${transaction.id || idx}`}
-                >
-                  <div className="flex items-center space-x-4">
+                <div key={transaction.id || idx} className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8 hover:bg-slotta-purple-50/30 transition">
+                  <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      transaction.type === 'payout' 
-                        ? 'bg-red-100' 
-                        : 'bg-green-100'
+                      transaction.type === 'payout' ? 'bg-red-50' : 'bg-green-50'
                     }`}>
                       {transaction.type === 'payout' ? (
-                        <ArrowDownCircle className="w-5 h-5 text-red-600" />
+                        <ArrowDownCircle className="w-5 h-5 text-red-500" />
                       ) : (
-                        <ArrowUpCircle className="w-5 h-5 text-green-600" />
+                        <ArrowUpCircle className="w-5 h-5 text-green-500" />
                       )}
                     </div>
                     <div>
-                      <div className="font-semibold">
-                        {transaction.type === 'payout' ? 'Payout' : 'Slotta Credit'}
+                      <div className="font-semibold text-slotta-ink">
+                        {transaction.type === 'payout' ? 'Payout' : 'SLØ Credit'}
                       </div>
-                      <div className="text-sm text-gray-500">
-                        {transaction.description || transaction.type}
-                      </div>
-                      <div className="text-xs text-gray-400">
+                      <div className="text-sm text-slotta-ink-soft">{transaction.description || transaction.type}</div>
+                      <div className="text-xs text-slotta-ink-soft">
                         {transaction.created_at ? new Date(transaction.created_at).toLocaleDateString('en-GB') : ''}
                       </div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className={`text-lg font-bold ${
-                      transaction.type === 'payout' ? 'text-red-600' : 'text-green-600'
-                    }`}>
+                    <div className={`text-lg font-bold ${transaction.type === 'payout' ? 'text-red-500' : 'text-green-500'}`}>
                       {transaction.type === 'payout' ? '-' : '+'}€{transaction.amount}
                     </div>
-                    <Badge variant="success" className="text-xs">
-                      completed
-                    </Badge>
+                    <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-green-50 text-green-700">completed</span>
                   </div>
                 </div>
               ))}
             </div>
           )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
       {/* Payout Settings */}
-      <Card className="mt-8">
-        <CardHeader>
-          <CardTitle>Payout Settings</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 border rounded-lg">
+      <div className="slotta-card rounded-2xl p-6">
+        <h3 className="text-lg font-semibold text-slotta-ink mb-5">Payout Settings</h3>
+        <div className="space-y-3">
+          {[
+            { label: 'Payout Method', value: 'Bank Transfer (Stripe Connect)' },
+            { label: 'Payout Schedule', value: 'Weekly (Every Saturday)' },
+            { label: 'Minimum Payout', value: '€50 (can request instantly above this)' },
+          ].map((setting, idx) => (
+            <div key={idx} className="flex items-center justify-between p-4 rounded-xl border border-slotta-purple/8">
               <div>
-                <div className="font-semibold">Payout Method</div>
-                <div className="text-sm text-gray-600">Bank Transfer (Stripe Connect)</div>
+                <div className="font-semibold text-slotta-ink">{setting.label}</div>
+                <div className="text-sm text-slotta-ink-soft">{setting.value}</div>
               </div>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={handleOpenStripeDashboard}
-                disabled={stripeLoading}
-              >
-                {stripeLoading ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : <ExternalLink className="w-4 h-4 mr-1" />}
+              <button onClick={handleOpenStripeDashboard} disabled={stripeLoading} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slotta-purple/10 text-sm text-slotta-ink-soft hover:border-slotta-purple/30 transition">
+                {stripeLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ExternalLink className="w-3.5 h-3.5" />}
                 Manage
-              </Button>
+              </button>
             </div>
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <div className="font-semibold">Payout Schedule</div>
-                <div className="text-sm text-gray-600">Weekly (Every Saturday)</div>
-              </div>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={handleOpenStripeDashboard}
-                disabled={stripeLoading}
-              >
-                {stripeLoading ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : <ExternalLink className="w-4 h-4 mr-1" />}
-                Manage
-              </Button>
-            </div>
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div>
-                <div className="font-semibold">Minimum Payout</div>
-                <div className="text-sm text-gray-600">€50 (can request instantly above this)</div>
-              </div>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={handleOpenStripeDashboard}
-                disabled={stripeLoading}
-              >
-                {stripeLoading ? <Loader2 className="w-4 h-4 mr-1 animate-spin" /> : <ExternalLink className="w-4 h-4 mr-1" />}
-                Manage
-              </Button>
-            </div>
-            
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-              <p className="text-sm text-blue-700">
-                <strong>Note:</strong> Bank details, payout schedule, and other payment settings are managed in your Stripe Express Dashboard for security.
-              </p>
-            </div>
+          ))}
+          <div className="p-4 bg-slotta-purple-50 rounded-xl mt-3">
+            <p className="text-sm text-slotta-purple">
+              <strong>Note:</strong> Bank details, payout schedule, and other payment settings are managed in your Stripe Express Dashboard for security.
+            </p>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </MasterLayout>
   );
 };

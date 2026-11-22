@@ -9,9 +9,9 @@ const FAQSection = () => {
       title: 'Masters',
       items: [
         {
-          question: 'How does the Slotta hold work?',
+          question: 'How does the SLØTTA hold work?',
           answer:
-            "Slotta places a temporary authorization on the client's card. No money is taken unless they no-show.",
+            "SLØTTA places a temporary authorization on the client's card. No money is taken unless they no-show.",
         },
         {
           question: 'When do I receive compensation?',
@@ -31,7 +31,7 @@ const FAQSection = () => {
         {
           question: 'Will I be charged upfront?',
           answer:
-            'No. Slotta only places a temporary hold. You are charged only if you no-show.',
+            'No. SLØTTA only places a temporary hold. You are charged only if you no-show.',
         },
         {
           question: 'When is the hold released?',
@@ -41,7 +41,7 @@ const FAQSection = () => {
         {
           question: 'Why do you authorize my card?',
           answer:
-            "To ensure fairness and protect the master’s time. No payment is taken unless policy is broken.",
+            "To ensure fairness and protect the master's time. No payment is taken unless policy is broken.",
         },
       ],
     },
@@ -61,10 +61,10 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="text-center space-y-4 mb-12"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slotta-ink">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
-          <p className="text-base md:text-lg text-white/50">
+          <p className="text-base md:text-lg text-slotta-ink-soft">
             Clear answers for masters and clients
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ const FAQSection = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="text-sm text-white/40 uppercase tracking-wider">
+              <div className="text-sm text-slotta-ink-soft uppercase tracking-wider">
                 {group.title}
               </div>
               <div className="space-y-4">
@@ -89,7 +89,7 @@ const FAQSection = () => {
                   return (
                     <motion.div
                       key={item.question}
-                      className={`glass-card rounded-3xl p-6 ${isOpen ? 'neon-glow' : ''}`}
+                      className={`slotta-card rounded-3xl p-6 ${isOpen ? 'glow-primary' : ''}`}
                       whileHover={{ y: -2 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -99,12 +99,12 @@ const FAQSection = () => {
                         onClick={() => toggle(index)}
                         aria-expanded={isOpen}
                       >
-                        <span className="text-lg font-semibold text-white">
+                        <span className="text-lg font-semibold text-slotta-ink">
                           {item.question}
                         </span>
                         <motion.span
                           className={`text-2xl ${
-                            isOpen ? 'text-gradient neon-text' : 'text-white/80'
+                            isOpen ? 'text-gradient' : 'text-slotta-ink-soft'
                           }`}
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
@@ -120,14 +120,14 @@ const FAQSection = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.2 }}
-                            className="mt-4 text-white/50 leading-relaxed"
+                            className="mt-4 text-slotta-ink-soft leading-relaxed"
                           >
                             {item.answer}
                           </motion.div>
                         )}
                       </AnimatePresence>
 
-                      <div className="mt-6 h-px bg-gradient-to-r from-[#FF2E93] to-[#9D00FF] opacity-30" />
+                      <div className="mt-6 h-px bg-gradient-to-r from-slotta-purple/30 to-slotta-lime/30" />
                     </motion.div>
                   );
                 })}

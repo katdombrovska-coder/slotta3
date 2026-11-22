@@ -40,8 +40,8 @@ const PayoutSection = () => {
           className="max-w-5xl mx-auto space-y-12"
         >
           <div className="text-center space-y-6">
-            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight">Transparent Payouts</h2>
-            <p className="text-base md:text-lg text-white/50 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-slotta-ink">Transparent Payouts</h2>
+            <p className="text-base md:text-lg text-slotta-ink-soft max-w-2xl mx-auto">
               Get paid quickly with clear, upfront pricing
             </p>
           </div>
@@ -56,15 +56,15 @@ const PayoutSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass-card feature-card rounded-3xl p-6"
+                  className="slotta-card feature-card rounded-3xl p-6"
                 >
-                  <div className="icon-glow w-12 h-12 rounded-2xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-white" strokeWidth={1.5} />
+                  <div className="section-icon w-12 h-12 mb-4">
+                    <Icon className="w-6 h-6 text-slotta-purple" strokeWidth={1.5} />
                   </div>
                   <div className="space-y-2">
-                    <p className="text-sm text-white/40 uppercase tracking-wider">{detail.label}</p>
-                    <p className="text-2xl font-bold text-white">{detail.value}</p>
-                    <p className="text-xs text-white/50">{detail.description}</p>
+                    <p className="text-sm text-slotta-ink-soft uppercase tracking-wider">{detail.label}</p>
+                    <p className="text-2xl font-bold text-slotta-ink">{detail.value}</p>
+                    <p className="text-xs text-slotta-ink-soft">{detail.description}</p>
                   </div>
                 </motion.div>
               );
@@ -76,14 +76,14 @@ const PayoutSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="glass-card rounded-3xl p-6"
+            className="slotta-card rounded-3xl p-6"
           >
             <div className="flex items-start gap-4">
-              <div className="icon-glow w-10 h-10 rounded-2xl flex items-center justify-center">
-                <Info className="w-5 h-5 text-white" strokeWidth={1.5} />
+              <div className="section-icon w-10 h-10">
+                <Info className="w-5 h-5 text-slotta-purple" strokeWidth={1.5} />
               </div>
-              <p className="text-sm text-white/50 leading-relaxed">
-                <span className="text-white font-semibold">Why €30 minimum?</span> This threshold ensures efficient processing and reduces transaction costs. Your compensation accumulates automatically, and you can withdraw once you reach the minimum. Most service providers hit this within their first few bookings.
+              <p className="text-sm text-slotta-ink-soft leading-relaxed">
+                <span className="text-slotta-ink font-semibold">Why €30 minimum?</span> This threshold ensures efficient processing and reduces transaction costs. Your compensation accumulates automatically, and you can withdraw once you reach the minimum. Most service providers hit this within their first few bookings.
               </p>
             </div>
           </motion.div>
@@ -95,8 +95,8 @@ const PayoutSection = () => {
             viewport={{ once: true }}
             className="text-center pt-8"
           >
-            <p className="text-white/50">
-              Powered by <span className="text-white font-semibold">Stripe</span> • Payments processed securely
+            <p className="text-slotta-ink-soft">
+              Powered by <span className="text-slotta-ink font-semibold">Stripe</span> • Payments processed securely
             </p>
           </motion.div>
         </motion.div>
